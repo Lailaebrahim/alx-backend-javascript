@@ -19,7 +19,7 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
 
   return results.map((result) => ({
     status: result.status,
-    /*first result is the return of the first promise which is the object passed to resolve
+    /* first result is the return of the first promise which is the object passed to resolve
      and can be a string, second result is the result of the second promise which is
      the error object passed to reject so converts the rejection reason to a string */
     value: result.status === 'fulfilled' ? result.value : String(result.reason),
