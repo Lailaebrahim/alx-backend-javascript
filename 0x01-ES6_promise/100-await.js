@@ -8,11 +8,11 @@ export default async function asyncUploadUser() {
       return {
         photo: null,
         user: null,
-      }
+      };
     }
   }
   return {
     photo: results[0].value,
     user: results[1].value,
-  }
+  };
 }
