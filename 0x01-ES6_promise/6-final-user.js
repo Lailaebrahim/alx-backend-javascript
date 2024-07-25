@@ -1,6 +1,6 @@
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
- /*
+/*
  * 1- async before the function declaration allows the use of await inside the function
   and ensures the function returns a Promise.
  * 2- await before Promise.allSettled(promises):
@@ -19,8 +19,9 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
 
   return results.map((result) => ({
     status: result.status,
-    /*first result is the return of the first promise which is the object passed to resolve and can be a string
-    * second result is the result of the second promise which is the error object passed to reject so converts the rejection reason to a string */
+    /*first result is the return of the first promise which is the object passed to resolve
+     and can be a string, second result is the result of the second promise which is
+     the error object passed to reject so converts the rejection reason to a string */
     value: result.status === 'fulfilled' ? result.value : String(result.reason),
   }));
 }
