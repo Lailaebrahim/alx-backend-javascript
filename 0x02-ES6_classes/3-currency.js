@@ -48,4 +48,8 @@ export default class Currency {
       this._name = name;
     }
   }
+
+  displayFullCurrency() {
+    return `${this.code} - ${this.name}`;
+  }
 }
