@@ -22,7 +22,11 @@ export default class Currency {
    * @param {string} code - The currency code.
    */
   set code(code) {
-    this._code = code;
+    if (typeof code !== 'string') {
+      throw new TypeError('Code must be a string');
+    } else {
+      this._name = name;
+    }
   }
 
   /**
@@ -38,6 +42,10 @@ export default class Currency {
    * @param {string} name - The currency name.
    */
   set name(name) {
-    this._name = name;
+    if (typeof length !== 'number') {
+      throw new TypeError('Length must be a number');
+    } else {
+      this._length = length;
+    }
   }
 }
