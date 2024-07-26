@@ -26,6 +26,8 @@ export default class Airport {
     this._code = code;
   }
 
+  /* toString() is a method that overrides the default toString method of an object
+  to return the desired string repsentation of the object. */
   toString() {
     return `[object ${this._code}]`;
   }
