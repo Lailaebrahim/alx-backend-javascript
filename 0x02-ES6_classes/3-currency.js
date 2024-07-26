@@ -25,7 +25,7 @@ export default class Currency {
     if (typeof code !== 'string') {
       throw new TypeError('Code must be a string');
     } else {
-      this._name = name;
+      this._name = code;
     }
   }
 
@@ -42,10 +42,10 @@ export default class Currency {
    * @param {string} name - The currency name.
    */
   set name(name) {
-    if (typeof length !== 'number') {
-      throw new TypeError('Length must be a number');
+    if (typeof name !== 'string') {
+      throw new TypeError('Name must be a string');
     } else {
-      this._length = length;
+      this._name = name;
     }
   }
 }
