@@ -8,8 +8,8 @@ export default class Currency {
    * @param {string} name - The currency name.
    */
   constructor(code, name) {
-    this._code = code;
-    this._name = name;
+    this.code = code;
+    this.name = name;
   }
 
   /**
@@ -35,7 +35,7 @@ export default class Currency {
    */
   set code(value) {
     if (typeof value !== 'string') {
-      throw new TypeError("Code must be a string");
+      throw new TypeError('Code must be a string');
     } else {
       this._code = value;
     }
@@ -48,12 +48,12 @@ export default class Currency {
    */
   set name(name) {
     if (typeof name !== 'string') {
-      throw new TypeError("Name must be a string");
+      throw new TypeError('Name must be a string');
     } else {
       this._name = name;
     }
   }
-  
+
   displayFullCurrency() {
     return `${this._name} (${this._code})`;
   }
