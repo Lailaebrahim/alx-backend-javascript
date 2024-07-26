@@ -1,6 +1,3 @@
-/**
- * Represents a Currency object.
- */
 export default class Currency {
   /**
    * Creates a new Currency instance.
@@ -8,8 +5,8 @@ export default class Currency {
    * @param {string} name - The currency name.
    */
   constructor(code, name) {
-    this.code = code;
-    this.name = name;
+    this._code = code;
+    this._name = name;
   }
 
   /**
@@ -21,6 +18,14 @@ export default class Currency {
   }
 
   /**
+   * Sets the currency code.
+   * @param {string} code - The currency code.
+   */
+  set code(code) {
+    this._code = code;
+  }
+
+  /**
    * Gets the currency name.
    * @returns {string} The currency name.
    */
@@ -29,33 +34,10 @@ export default class Currency {
   }
 
   /**
-   * Sets the currency code.
-   * @param {string} value - The new currency code.
-   * @throws {TypeError} If the value is not a string.
-   */
-  set code(value) {
-    if (typeof value !== 'string') {
-      throw new TypeError('Code must be a string');
-    } else {
-      this._code = value;
-    }
-  }
-
-  /**
    * Sets the currency name.
-   * @param {string} name - The new currency name.
-   * @throws {TypeError} If the name is not a string.
+   * @param {string} name - The currency name.
    */
   set name(name) {
-    if (typeof name !== 'string') {
-      throw new TypeError('Name must be a string');
-    } else {
-      this._name = name;
-    }
+    this._name = name;
   }
-
-  displayFullCurrency() {
-    return `${this._name} (${this._code})`;
-  }
-
 }
