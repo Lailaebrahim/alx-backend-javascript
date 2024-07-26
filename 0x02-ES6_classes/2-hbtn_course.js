@@ -1,4 +1,4 @@
-class HolbertonCourse {
+export default class HolbertonCourse {
   /**
    * Represents a Holberton course.
    * @param {string} name - The name of the course.
