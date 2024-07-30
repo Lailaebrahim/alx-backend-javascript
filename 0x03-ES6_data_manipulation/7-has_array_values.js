@@ -3,7 +3,7 @@ export default function hasValuesFromArray(set, array) {
   if (!(set instanceof Set) || !Array.isArray(array)) {
     return false;
   }
-  for (let item of array) {
+  for (const item of array) {
     if (set.has(item)) {
       status = true;
     } else {
