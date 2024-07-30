@@ -8,8 +8,7 @@ export default function updateStudentGradeByCity(stds, city, newGrades) {
       const matchingGrade = newGrades.find((grade) => grade.studentId === std.id);
       if (matchingGrade) {
         std.grade = matchingGrade.grade;
-      }
-      else {
+      } else {
         std.grade = 'N/A';
       }
       return std;
