@@ -3,13 +3,11 @@ export default function updateUniqueItems(groceriesList) {
     throw new Error('Cannot process');
   }
   
-  const newmap = new Map(groceriesList)
-  
-  for (const [key, value] of newmap) {
+  for (const [key, value] of groceriesList) {
     if (value === 1) {
-      newmap.set(key, 100);
+      groceriesList.set(key, 100);
     }
   }
   
-  return newmap;
+  return groceriesList;
 }
