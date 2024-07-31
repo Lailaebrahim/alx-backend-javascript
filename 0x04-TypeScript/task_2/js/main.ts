@@ -58,3 +58,18 @@ function executeWork(employee: Director | Teacher) {
     console.log(employee.workTeacherTasks());
   }
 }
+
+// The following code defines a type alias called "Subjects" which can only have two possible values: "Math" or "History".
+type Subjects = 'Math' | 'History';
+
+// The function "teachClass" takes a parameter called "todayClass" which is of type "Subjects".
+// It checks the value of "todayClass" and if it is equal to "Math", it logs the message "Teaching Math" to the console.
+// Otherwise, it logs the message "Teaching History" to the console.
+function teachClass(todayClass: Subjects) {
+  if (todayClass === 'Math') {
+    console.log('Teaching Math');
+  } else {
+    console.log('Teaching History');
+  }
+}
+
