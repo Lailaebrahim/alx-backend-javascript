@@ -17,3 +17,7 @@ rl.question('', (name) => {
   
   rl.close();
 });
+
+rl.on('close', () => {
+    process.exit(0);
+});
