@@ -1,12 +1,14 @@
 const fs = require('fs');
+const { resolve } = require('path');
 
 
 const countStudents = (path) => {
     fs.readFile(path, 'utf-8', (error, data) => { 
         if (error) {
-            throw new Error('Cannot load the database');
+            PromiseRejectionEvent(new Error('Cannot load the database'));
         }
-        const lines = data.trim().split('\r\n').slice(1);
+        if (data) {
+            const lines = data.trim().split('\r\n').slice(1);
         let numStds = 0;
         let fields = {};
         if (lines.length === 0) {
@@ -28,6 +30,8 @@ const countStudents = (path) => {
                 console.log(`Number of students in ${field}: ${list.length}. List: ${list.join(', ')}`);
             }
         }
+        }
+        resolve(true)
     })
 };
 
