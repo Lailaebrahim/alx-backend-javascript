@@ -1,17 +1,19 @@
 const readline = require('readline');
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+  input: process.stdin,
+  output: process.stdout
 });
 
-const helloStr = 'Welcome to Holberton School, what is your name?\n'
+console.log('Welcome to Holberton School, what is your name?');
 
-rl.question(helloStr, (name) => {
-    console.log(`Your name is: ${name}`);
-    //check if stdin is an interactive terminal 
-    if (process.stdin.isTTY) {
-    console.log('This important software is now closing\n');
-    }
-    rl.close();
+rl.question('', (name) => {
+  console.log(`Your name is: ${name}`);
+  
+  // Check if we're reading from a TTY (interactive terminal)
+  if (process.stdin.isTTY) {
+    console.log('This important software is now closing');
+  }
+  
+  rl.close();
 });
