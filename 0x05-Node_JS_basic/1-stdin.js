@@ -11,11 +11,7 @@ rl.question(helloStr, (name) => {
     console.log(`Your name is: ${name}`);
     //check if stdin is an interactive terminal 
     if (process.stdin.isTTY) {
-    console.log('This important software is now closing');
+    console.log('This important software is now closing\n');
     }
     rl.close();
-});
-
-rl.on('close', () => {
-    process.exit();
 });
