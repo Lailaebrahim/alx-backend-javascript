@@ -5,9 +5,9 @@ const Port = 1245;
 const Host = 'localhost';
 
 app.on('request', (_, res) => {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello Holberton School!');
+  res.statusCode = 200;
+  res.setHeader('Content-Type', 'text/plain');
+  res.end('Hello Holberton School!');
 });
 
 app.listen(Port, Host);
