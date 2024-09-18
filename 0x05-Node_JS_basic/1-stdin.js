@@ -1,23 +1,15 @@
-const readline = require('readline');
+process.stdout('Welcome to Holberton School, what is your name?\n');
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
+/** The readable event handler manually reads chunks of data using 
+ * process.stdin.read() and writes them to the output
+ *  using process.stdout.write(). */ 
+process.stdin.on('readable', () => {
+    const name = process.stdin.read();
+    if (name !== null) {
+      process.stdout(`Your name is: ${name}`);
+    }
 });
-
-console.log('Welcome to Holberton School, what is your name?\n');
-
-rl.question('', (name) => {
-  console.log(`Your name is: ${name}`);
   
-  // Check if we're reading from a TTY (interactive terminal)
-  if (process.stdin.isTTY) {
+process.stdin.on('end', () => {
     console.log('This important software is now closing\n');
-  }
-  
-  rl.close();
-});
-
-rl.on('close', () => {
-    process.exit(0);
 });
