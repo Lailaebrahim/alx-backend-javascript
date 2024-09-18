@@ -13,6 +13,6 @@ rl.question(helloStr, (name) => {
 });
 
 rl.on('close', () => {
-    console.log('This important software is now closing');
+    console.log('This important software is now closing\n');
     process.exit();
 });
