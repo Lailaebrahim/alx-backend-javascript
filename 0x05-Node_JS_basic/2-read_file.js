@@ -3,6 +3,9 @@ function countStudents(path) {
         const fs = require('fs');
         const data = fs.readFileSync(path, 'utf-8');
         const lines = data.trim().split('\r\n').slice(1);
+        if (lines.length === 0) {
+            throw new Error('Cannot load the database');
+        }
         let numStds = 0;
         let fields = {};
         for (let line of lines) {
