@@ -4,14 +4,14 @@ const fs = require('fs');
 const PORT = 1245;
 const HOST = 'localhost';
 const app = http.createServer();
-const db_path = process.argv.length > 2 ? process.argv[2] : '';
+const dbPath = process.argv.length > 2 ? process.argv[2] : '';
 
 const countStudents = (Path) => new Promise((resolve, reject) => {
   if (!Path) {
     reject(new Error('Cannot load the database'));
   }
   if (Path) {
-    fs.readFile(dataPath, (err, data) => {
+    fs.readFile(Path, (err, data) => {
       if (err) {
         reject(new Error('Cannot load the database'));
       }
@@ -76,7 +76,7 @@ const SERVER_ROUTE_HANDLERS = [
     handler(_, res) {
       const responseParts = ['This is the list of our students'];
 
-      countStudents(db_path)
+      countStudents(dbPath)
         .then((report) => {
           responseParts.push(report);
           const responseText = responseParts.join('\n');
