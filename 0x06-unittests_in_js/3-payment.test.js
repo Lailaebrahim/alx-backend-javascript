@@ -19,7 +19,7 @@ describe("sendPaymentRequestToApi", function () {
     // check number of calling the internal method on calling the external one
     it("check if the function was called once", function() {
         sendPaymentRequestToApi(100, 20);
-        expect(calculateNumberSpy.calledOnce).to.be.true;
+        expect(calculateNumberSpy.callCount).to.be.equal(1);
     });
 
     // check the arguments the internal method is called with
