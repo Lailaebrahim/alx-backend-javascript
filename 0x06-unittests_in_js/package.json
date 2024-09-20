@@ -9,7 +9,7 @@
   "author": "Laila Ebrahim",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^5.1.1",
+    "chai": "^4.3.7",
     "mocha": "^10.7.3"
   }
 }
