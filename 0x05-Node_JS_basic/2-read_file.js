@@ -7,28 +7,36 @@ const countStudents = (path) => {
   if (!fs.statSync(path).isFile()) {
     throw new Error('Cannot load the database');
   }
-  const data = fs.readFileSync(path, 'utf-8');
-  const lines = data.trim().split('\r\n').slice(1);
-  let numStds = 0;
-  const fields = {};
-  if (lines.length === 0) {
+
+  const fileContent = fs.readFileSync(path, 'utf-8');
+  const lines = fileContent.trim().split('\n');
+
+  if (lines.length <= 1) {
     throw new Error('Cannot load the database');
   }
-  for (const line of lines) {
-    const std = line.split(',');
-    if (fields[std[3]]) {
-      fields[std[3]].push(std[0]);
-    } else {
-      fields[std[3]] = [std[0]];
+
+  const headerFields = lines[0].split(',');
+  const fieldIndex = headerFields.length - 1;
+  const nameIndex = headerFields.findIndex(field => field.toLowerCase() === 'firstname');
+
+  const studentGroups = {};
+
+  for (const line of lines.slice(1)) {
+    const student = line.split(',');
+    const field = student[fieldIndex].trim();
+    const name = student[nameIndex].trim();
+
+    if (!studentGroups[field]) {
+      studentGroups[field] = [];
     }
-    numStds += 1;
+    studentGroups[field].push(name);
   }
-  console.log(`Number of students: ${numStds}`);
-  for (const field in fields) {
-    if (field) {
-      const list = fields[field];
-      console.log(`Number of students in ${field}: ${list.length}. List: ${list.join(', ')}`);
-    }
+
+  const totalStudents = Object.values(studentGroups).reduce((sum, group) => sum + group.length, 0);
+  console.log(`Number of students: ${totalStudents}`);
+
+  for (const [field, students] of Object.entries(studentGroups)) {
+    console.log(`Number of students in ${field}: ${students.length}. List: ${students.join(', ')}`);
   }
 };
 

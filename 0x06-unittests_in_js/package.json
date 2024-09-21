@@ -1,0 +1,16 @@
+{
+  "name": "0x06-unittests_in_js",
+  "version": "1.0.0",
+  "description": "- How to use Mocha to write a test suite\r - How to use different assertion libraries (Node or Chai)\r - How to present long test suites\r - When and how to use spies\r - When and how to use stubs\r - What are hooks and when to use them\r - Unit testing with Async functions\r - How to write integration tests with a small node server",
+  "main": "0-calcul.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Laila Ebrahim",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.7.3",
+    "sinon": "^19.0.2"
+  }
+}
