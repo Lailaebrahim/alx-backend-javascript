@@ -1,11 +1,12 @@
-const express = require('express');
+import express from 'express';
+import routes from './routes';
+
+
 const app = express();
 const port = 1245;
-const path = process.argv[2];
-const routes = require('./routes/index');
+
 
 routes(app);
-
 app.listen(port, () => {
   console.log(`Server listening on PORT ${port}`);
 });
