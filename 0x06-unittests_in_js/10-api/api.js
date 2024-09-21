@@ -7,7 +7,7 @@ app.get('/', (_, res) => {
     res.send('Welcome to the payment system');
 });
 
-app.get('/cart/:id(\\d+)', (_, res) => {
+app.get('/cart/:id(\\d+)', (req, res) => {
     const id = req.params.id;
     res.send(`Payment methods for cart ${id}`);
 });
@@ -22,10 +22,7 @@ app.get('/available_payments', (_, res) => {
 });
 
 app.post('/login', (req, res) => {
-    if (req.body) {
-        const username = req.body.userName;
-    }
-    res.send(`Welcome ${username}`);
+    res.send(`Welcome ${req.body.userName}`);
 });
 
 app.listen(Port, () => {

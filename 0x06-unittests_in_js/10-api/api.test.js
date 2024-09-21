@@ -14,7 +14,7 @@ describe('API integration test', function () {
     })
 
     describe("Test suite for cart/: route", () => {
-        it('Get /cart/:id', (done) => {
+        it('Get /cart/:id with numeric id', (done) => {
             request.get('http://localhost:7865/cart/12', (_err, res, body) => {
                 expect(res.statusCode).to.be.equal(200);
                 expect(body).to.be.equal('Payment methods for cart 12');
@@ -22,7 +22,7 @@ describe('API integration test', function () {
             });
         });
 
-        it('Get /cart/:id incorrect id', (done) => {
+        it('Get /cart/:id non numeric', (done) => {
             request.get('http://localhost:7865/cart/thisisnotanumber', (_err, res, _body) => {
                 expect(res.statusCode).to.be.equal(404);
                 done();
