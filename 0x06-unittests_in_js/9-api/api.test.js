@@ -14,7 +14,7 @@ describe('API integration test', function () {
     it('Get /cart/:id', (done) => {
         request.get('http://localhost:7865/cart/12', (_err, res, body) => {
             expect(res.statusCode).to.be.equal(200);
-            expect(body).to.be.equal('Payment methods for cart :12');
+            expect(body).to.be.equal('Payment methods for cart 12');
             done();
         });
     });
