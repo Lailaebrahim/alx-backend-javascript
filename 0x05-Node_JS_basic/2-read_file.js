@@ -17,7 +17,7 @@ const countStudents = (path) => {
 
   const headerFields = lines[0].split(',');
   const fieldIndex = headerFields.length - 1;
-  const nameIndex = headerFields.findIndex(field => field.toLowerCase() === 'firstname');
+  const nameIndex = headerFields.findIndex((field) => field.toLowerCase() === 'firstname');
 
   const studentGroups = {};
 
