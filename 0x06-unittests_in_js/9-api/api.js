@@ -6,13 +6,9 @@ app.get('/', (_, res) => {
     res.send('Welcome to the payment system');
 });
 
-app.get('/cart/:id', (_, res) => {
-    if (typeof (id) == typeof (1)) {
-        res.send(`Payment methods for cart ${id}`);
-    }
-    else {
-        res.status(404).send('Invalid cart id');
-    }
+app.get('/cart/:id(\\d+)', (_, res) => {
+    const id = req.params.id;
+    res.send(`Payment methods for cart ${id}`);
 });
 
 app.listen(Port, () => {
