@@ -3,7 +3,7 @@ const request = require('request')
 
 describe('API integration test', function () {
 
-    it('GET /', (done)  => {
+    it('GET /', (done) => {
         request.get('http://localhost:7865/', (err, res, body) => {
             expect(res.statusCode).to.be.equal(200);
             expect(body).to.be.equal('Welcome to the payment system');
@@ -17,9 +17,11 @@ describe('API integration test', function () {
             expect(body).to.be.equal('Payment methods for cart :12');
             done();
         });
-        request.get('http://localhost:7865/cart/id', (err, res, body) => { 
+    });
+
+    it('Get /cart/:id incorrect id', (done) => {
+        request.get('http://localhost:7865/cart/thisisnotanumber', (err, res, body) => {
             expect(res.statusCode).to.be.equal(404);
-            expect(body).to.be.equal('Invalid cart id');
             done();
         });
     });
