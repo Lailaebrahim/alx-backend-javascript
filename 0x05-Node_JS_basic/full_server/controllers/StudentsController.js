@@ -14,7 +14,7 @@ class StudentsController {
         res.setHeader('Content-Length', responseText.length);
         res.send(responseText);
       })
-      .catch((err) => {
+      .catch(() => {
         res.status(500).send('Cannot load the database');
       });
   }
@@ -34,7 +34,7 @@ class StudentsController {
             res.setHeader('Content-Length', responseText.length);
             res.send(responseText);
           })
-          .cath((_error) => {
+          .cath(() => {
             res.status(500).send('Cannot load the database');
           });
       }
