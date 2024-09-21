@@ -6,12 +6,12 @@ class StudentsController {
         readDatabase(path)
             .then((studentGroups) => {
                 res.setHeader('Content-Type', 'text/plain');
-                res.setHeader('Content-Length', responseText.length);
                 res.statusCode = 200;
                 let responseText = 'This is the list of our students\n';
                 for (field in studentGroups) {
                     responseText += `Number of students in ${field}: ${studentGroups[field].length}. List: ${studentGroups[field].join(', ')}\n`;
                 }
+                res.setHeader('Content-Length', responseText.length);
                 res.send(responseText);
             })
             .catch((err) => {
