@@ -7,7 +7,7 @@ app.get('/', (_, res) => {
 });
 
 app.listen(Port, () => {
-    console.log('API available on localhost port 7865');
+    console.log(`API available on localhost port ${Port}`);
 });
 
 module.exports = app;
