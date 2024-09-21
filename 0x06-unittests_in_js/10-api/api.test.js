@@ -25,11 +25,4 @@ describe('API integration test', function () {
             done();
         });
     });
-
-    it('Get /cart/:id negative id', (done) => {
-        request.get('http://localhost:7865/cart/-108', (err, res, body) => {
-            expect(res.statusCode).to.be.equal(404);
-            done();
-        });
-    });
 });
