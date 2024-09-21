@@ -1,15 +1,15 @@
 import readDatabase from '../utils';
 
 class StudentsController {
-    static getAllStudents(req, res) {
+    static getAllStudents(_req, res) {
         const path = process.argv.length > 2 ? process.argv[2] : '';
         readDatabase(path)
             .then((studentGroups) => {
                 res.setHeader('Content-Type', 'text/plain');
                 res.statusCode = 200;
                 let responseText = 'This is the list of our students\n';
-                for (field in studentGroups) {
-                    responseText += `Number of students in ${field}: ${studentGroups[field].length}. List: ${studentGroups[field].join(', ')}\n`;
+                for (const [field, list] of Object.entries(studentGroups)) {
+                    responseText += `Number of students in ${field}: ${list.length}. List: ${list.join(', ')}\n`;
                 }
                 res.setHeader('Content-Length', responseText.length);
                 res.send(responseText);
@@ -30,12 +30,12 @@ class StudentsController {
                 readDatabase(path)
                     .then((studentGroups) => {
                         res.setHeader('Content-Type', 'text/plain');
-                        res.setHeader('Content-Length', responseText.length);
                         res.statusCode = 200;
                         let responseText = `List : ${studentGroups[major].join(', ')}`;
+                        res.setHeader('Content-Length', responseText.length);
                         res.send(responseText);
                     })
-                    .cath((error) => {
+                    .cath((_error) => {
                         res.status(500).send('Cannot load the database');
                     })
             }
