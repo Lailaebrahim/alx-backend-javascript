@@ -1,6 +1,5 @@
 import fs from 'fs';
 
-
 const readDatabase = function (path) {
   return new Promise((resolve, reject) => {
     if (!path) {
