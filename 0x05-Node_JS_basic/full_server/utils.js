@@ -13,15 +13,17 @@ const readDatabase = function (path) {
         } else {
           const fileLines = data.trim().split('\n');
           const studentGroups = {};
-          for (const line in Object.entries(fileLines.slice(1))) {
-            const [stdName, , field] = line.split(',');
-            if (!Object.keys(studentGroups).includes(field)) {
-              studentGroups[field] = [];
+          for (const [index, line] of Object.entries(fileLines.slice(1))) {
+            if (Object.prototype.hasOwnProperty.call(fileLines, index)) {
+              const [stdName, , field] = line.split(',');
+              if (!Object.keys(studentGroups).includes(field)) {
+                studentGroups[field] = [];
+              }
+              studentGroups[field].push(stdName);
             }
-            studentGroups[field].push(stdName);
           }
+          resolve(studentGroups);
         }
-        resolve(studentGroups);
       });
     }
   });
